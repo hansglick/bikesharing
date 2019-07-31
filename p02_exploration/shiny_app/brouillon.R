@@ -1,6 +1,6 @@
 library(ggplot2)
 library(lubridate)
-
+library(dplyr)
 rm(list=ls())
 
 # Import du .csv en vue d'explorer les données avec Shiny
@@ -14,9 +14,9 @@ df$season = as.factor(df$season)
 df$holiday = as.factor(df$holiday)
 df$workingday = as.factor(df$workingday)
 df$weather = as.factor(df$weather)
-df$month = as.factor(df$month)
+df$month = factor(df$month,levels = c("January","February","March","April","May","June","July","August","September","October","November","December"))
 df$hour = as.factor(df$hour)
-df$day = as.factor(df$day)
+df$day = factor(df$day,levels = c("Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"))
 df$year = as.factor(df$year)
 # levels(df$month) = c("January","February","March","April","May","June","July","August","September","October","November","December")
 # levels(df$day) = c("Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday")
@@ -42,8 +42,12 @@ fun_build_2d_plot =function(df,name_var){
   
   # le cas ou la variable est catégorielle
   if (decision){
-    p <- ggplot(df, aes_string(name_var,"count")) + 
-      geom_bar(stat="sum")
+    
+    mystats = df %>%
+      group_by_(name_var) %>%
+      summarise(count = sum(count))
+    p<-ggplot(data=mystats, aes_string(x=name_var, y="count")) +
+      geom_bar(stat="identity")
   } else { # le cas ou elle est continue
     p <- ggplot(df, aes_string(name_var, "count")) +
       geom_point() +
@@ -54,7 +58,7 @@ fun_build_2d_plot =function(df,name_var){
   return(p)
 }
 # test de la fonction
-fun_build_2d_plot(df,"month")
+# fun_build_2d_plot(df,"season")
 
 
 
@@ -69,4 +73,6 @@ fun_filter_df = function(df,date_debut,date_fin){
 # date_debut = as.Date("2011-06-22")
 # date_fin = as.Date("2011-11-13")
 # resultat = fun_filter_df(df,date_debut,date_fin)
+
+
 
