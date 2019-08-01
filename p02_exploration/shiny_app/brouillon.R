@@ -1,6 +1,8 @@
 library(ggplot2)
 library(lubridate)
 library(dplyr)
+library(dygraphs)
+library(xts)
 rm(list=ls())
 
 # Import du .csv en vue d'explorer les données avec Shiny
@@ -25,8 +27,6 @@ df$year = as.factor(df$year)
 saveRDS(object = df,file = "df.rds")
 
 
-
-
 #  LES FONCTIONS * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
 
 # Fonction qui dit si une variable est factorielle ou non
@@ -36,7 +36,6 @@ fun_is_factor = function(name_var){
 
 # Fonction qui prend une variable 'text' et qui créer un graphique croisé avec la target
 fun_build_2d_plot =function(df,name_var){
-  
   # Quel est le format de la variable a plotter
   decision = fun_is_factor(name_var)
   
@@ -45,7 +44,7 @@ fun_build_2d_plot =function(df,name_var){
     
     mystats = df %>%
       group_by_(name_var) %>%
-      summarise(count = sum(count))
+      summarise(count = mean(count))
     p<-ggplot(data=mystats, aes_string(x=name_var, y="count")) +
       geom_bar(stat="identity")
   } else { # le cas ou elle est continue
@@ -58,11 +57,9 @@ fun_build_2d_plot =function(df,name_var){
   return(p)
 }
 # test de la fonction
-# fun_build_2d_plot(df,"season")
+fun_build_2d_plot(df,"hour")
 
-
-
-
+# names(df)
 
 # Fonction qui filtre le dataframe en fonction d'une date de début et une date de fin
 fun_filter_df = function(df,date_debut,date_fin){
@@ -73,6 +70,26 @@ fun_filter_df = function(df,date_debut,date_fin){
 # date_debut = as.Date("2011-06-22")
 # date_fin = as.Date("2011-11-13")
 # resultat = fun_filter_df(df,date_debut,date_fin)
+
+# THE MEGA TIME SERIES
+build_the_time_series = function(){
+  mydf = df[,c("datetime","
+               count")]
+  mydf = mydf[order(mydf$datetime,decreasing = FALSE),]
+  mydf$datetime = mydf$datetime + hours(5)
+  mydata = xts(x = mydf$count, order.by = mydf$datetime)
+  g = dygraph(mydata) %>% dyRangeSelector()
+  return(g)
+}
+
+# date_debut = as.Date("2011-06-22")
+# date_fin = as.Date("2011-11-13")
+# date_debut = as.Date("2012-06-22")
+# date_fin = as.Date("2012-11-13")
+# df_filter = fun_filter_df(df,date_debut, date_fin)
+# fun_build_2d_plot(df_filter,"hour")
+# fun_build_2d_plot(df_filter,"month")
+
 
 
 
