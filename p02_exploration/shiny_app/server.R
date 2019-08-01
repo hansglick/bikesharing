@@ -10,4 +10,9 @@ shinyServer(function(input, output, session) {
   output$my2Dplot <- renderPlot({
     fun_build_2d_plot(data(),input$selected_var)
   })
+  
+  output$my3Dplot <- renderPlot({
+    fun_build_3dplot(data(),input$selected_var,input$selected_var_bis)
+  })
+  
 })

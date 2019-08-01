@@ -19,7 +19,7 @@ ui <- dashboardPage(
     sidebarMenu(
       menuItem("COMPARAISON", tabName = "ONGLET_draft", icon = icon("plane")),
       menuItem("DATAFRAME", tabName = "ONGLET_offset", icon = icon("plane")),
-      # menuItem("HABITS", tabName = "ONGLET_habits", icon = icon("plane")),
+      menuItem("HABITS", tabName = "ONGLET_habits", icon = icon("plane")),
       # menuItem("RECHERCHE", tabName = "ONGLET_recherche", icon = icon("plane")),
     
       selectInput(
@@ -27,6 +27,13 @@ ui <- dashboardPage(
         label = "Selectionnez une variable",
         choices = all_var_names,
         selected = all_var_names[1],
+        selectize = TRUE
+      ),
+      selectInput(
+        inputId = "selected_var_bis",
+        label = "Selectionnez une variable",
+        choices = all_var_names,
+        selected = all_var_names[2],
         selectize = TRUE
       ),
       sliderInput("selected_period",
@@ -145,32 +152,41 @@ ui <- dashboardPage(
             plotOutput("my2Dplot")
           )
         )
-      ) # FIN ONGLET OFFSET, rajouter virgule apres parenthese si autre onglet
+      ), # FIN ONGLET OFFSET, rajouter virgule apres parenthese si autre onglet
       
       
       
       
       
-      # # début Onglet habits
-      # tabItem(
-      #   tabName = "ONGLET_habits",
-      #   
-      #   # ROW 1 - Onglet HABITS
-      #   fluidRow(
-      #   ),
-      #   fluidRow(
-      #   ),
-      #   fluidRow(
-      #   ),
-      #   fluidRow(
-      #   ),
-      #   fluidRow(
-      #   ),
-      #   fluidRow(
-      #   ),
-      #   fluidRow(
-      #   )
-      # ), # fin onglet habits
+      # début Onglet habits
+      tabItem(
+        tabName = "ONGLET_habits",
+
+        # ROW 1 - Onglet HABITS
+        fluidRow(
+          box(
+            collapsible = TRUE,
+            collapsed = FALSE,
+            solidHeader = TRUE,
+            status = "primary",
+            title="3D graph",
+            width=12,
+            plotOutput("my3Dplot")
+          )
+        ),
+        fluidRow(
+        ),
+        fluidRow(
+        ),
+        fluidRow(
+        ),
+        fluidRow(
+        ),
+        fluidRow(
+        ),
+        fluidRow(
+        )
+      ) # fin onglet habits
       
       
       

@@ -46,3 +46,13 @@ build_the_time_series = function(){
   g = dygraph(mydata) %>% dyRangeSelector()
   return(g)
 }
+
+
+fun_build_3dplot = function(df,varX,varY){
+  
+  g = ggplot(df, aes_string(varX, varY)) +
+    geom_raster(aes_string(fill = "count")) + 
+    scale_fill_gradientn(colours=c("yellow","red"))
+  return(g)
+  
+}

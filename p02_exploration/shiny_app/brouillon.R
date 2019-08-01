@@ -23,6 +23,32 @@ df$year = as.factor(df$year)
 # levels(df$month) = c("January","February","March","April","May","June","July","August","September","October","November","December")
 # levels(df$day) = c("Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday")
 
+
+df$humidityQ <- with(df, cut(humidity, 
+                             breaks=quantile(humidity, probs=seq(0,1, by=0.25), na.rm=TRUE), 
+                             include.lowest=TRUE))
+
+
+df$tempQ <- with(df, cut(temp, 
+                             breaks=quantile(temp, probs=seq(0,1, by=0.25), na.rm=TRUE), 
+                             include.lowest=TRUE))
+
+df$atempQ <- with(df, cut(atemp, 
+                             breaks=quantile(atemp, probs=seq(0,1, by=0.25), na.rm=TRUE), 
+                             include.lowest=TRUE))
+
+df$windspeedQ <- with(df, cut(windspeed, 
+                             breaks=quantile(windspeed, probs=seq(0,1, by=0.25), na.rm=TRUE), 
+                             include.lowest=TRUE))
+
+df$casualQ <- with(df, cut(casual, 
+                             breaks=quantile(casual, probs=seq(0,1, by=0.25), na.rm=TRUE), 
+                             include.lowest=TRUE))
+
+df$registeredQ <- with(df, cut(registered, 
+                             breaks=quantile(registered, probs=seq(0,1, by=0.25), na.rm=TRUE), 
+                             include.lowest=TRUE))
+
 # Sauvegarde du dataframe nettoyé
 saveRDS(object = df,file = "df.rds")
 
@@ -91,5 +117,16 @@ build_the_time_series = function(){
 # fun_build_2d_plot(df_filter,"month")
 
 
+fun_build_3dplot = function(df,varX,varY){
 
+  g = ggplot(df, aes_string(varX, varY)) +
+    geom_raster(aes_string(fill = "count")) + 
+    scale_fill_gradientn(colours=c("yellow","red"))
+  return(g)
+  
+}
+
+varX = "humidityQ"
+varY = "day"
+fun_build_3dplot (df,varX,varY)
 
