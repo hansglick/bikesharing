@@ -12,4 +12,4 @@ L'utilisateur peut explorer le lien qui existe entre le croisement de n'importe 
 
 ## Time Series
 L'utilisateur peut explorer tout les points de la time serie représentant le nombre de vélos loués par heure entre le 1er Janvier 2011 et le 31 Décembre 2012.
-<img src="img/appts.PNG" width="500">
+<img src="img/appts.PNG" width="800">
