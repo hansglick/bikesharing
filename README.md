@@ -11,6 +11,6 @@ conda env create -f environment.yml
 
 # Auteurs
 
- * Serge Nakache
- * Vincent Gigliobianco, le bogoss
+ * Serge Nakache : https://www.linkedin.com/in/serge-nakache-1b5364ab/
+ * Vincent Gigliobianco : https://www.linkedin.com/in/vincent-gigliobianco-4b45a9a8/
  
