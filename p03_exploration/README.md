@@ -4,12 +4,12 @@ L'objectif de ce folder est le développement d'une application Shiny permettant
 
 ## Variable Versus Target (2d plot)
 L'utilisateur peut explorer le lien qui existe entre n'importe quelle variable et la variable cible (nombre de vélos loués). Voir ci-dessous :
-![GitHub Logo](/img/app2d.png)
+![2dplot](img/app2d.png)
 
 ## Variable x Variable Versus Target (3d plot)
 L'utilisateur peut explorer le lien qui existe entre le croisement de n'importe quelle paire de variables présentes dans le dataset et la variable cible (nombre de vélos loués)
-![GitHub Logo](/img/app3d.png)
+![3dplot](img/app3d.png)
 
 ## Time Series
 L'utilisateur peut explorer tout les points de la time serie représentant le nombre de vélos loués par heure entre le 1er Janvier 2011 et le 31 Décembre 2012.
-![GitHub Logo](/img/appts.png)
+![tsplot](img/appts.png)
