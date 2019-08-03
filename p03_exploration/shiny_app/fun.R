@@ -28,7 +28,7 @@ fun_build_2d_plot =function(df,name_var){
   return(p)
 }
 # test de la fonction
-fun_build_2d_plot(df,"hour")
+# fun_build_2d_plot(df,"hour")
 
 # Fonction qui filtre le dataframe en fonction d'une date de début et une date de fin
 fun_filter_df = function(df,date_debut,date_fin){

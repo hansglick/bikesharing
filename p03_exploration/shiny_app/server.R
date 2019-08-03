@@ -3,6 +3,10 @@ shinyServer(function(input, output, session) {
     fun_filter_df(df,input$selected_period[1],input$selected_period[2])
   }) 
 
+  # output$myvariablesdef <- renderPrint({
+  #   variables_definition
+  # })
+  
   output$mydygraph <- renderDygraph({
     time_series_graph
   })

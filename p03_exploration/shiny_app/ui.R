@@ -7,7 +7,7 @@ ui <- dashboardPage(
   # le DASHBOARD HEADER
   dashboardHeader(title = "Dashboard"),
   
-  
+    
   # le DASHBOARD SIDEBAR
   dashboardSidebar(
     
@@ -17,10 +17,10 @@ ui <- dashboardPage(
     ),
     
     sidebarMenu(
-      menuItem("COMPARAISON", tabName = "ONGLET_draft", icon = icon("plane")),
-      menuItem("DATAFRAME", tabName = "ONGLET_offset", icon = icon("plane")),
-      menuItem("HABITS", tabName = "ONGLET_habits", icon = icon("plane")),
-      # menuItem("RECHERCHE", tabName = "ONGLET_recherche", icon = icon("plane")),
+      menuItem("Time series of Y", tabName = "ONGLET_draft", icon = icon("plane")),
+      menuItem("2D Graph", tabName = "ONGLET_offset", icon = icon("plane")),
+      menuItem("3D Graph", tabName = "ONGLET_habits", icon = icon("plane")),
+      menuItem("Help", tabName = "ONGLET_recherche", icon = icon("plane")),
     
       selectInput(
         inputId = "selected_var",
@@ -152,12 +152,11 @@ ui <- dashboardPage(
             plotOutput("my2Dplot")
           )
         )
+      
       ), # FIN ONGLET OFFSET, rajouter virgule apres parenthese si autre onglet
       
       
-      
-      
-      
+    
       # début Onglet habits
       tabItem(
         tabName = "ONGLET_habits",
@@ -186,28 +185,33 @@ ui <- dashboardPage(
         ),
         fluidRow(
         )
-      ) # fin onglet habits
+      ), # fin onglet habits
       
       
       
       
       
       # Debut onglet RECHERCHE
-      # tabItem(
-      #   tabName = "ONGLET_recherche",
-      #   # R1 - Onglet recherche
-      #   fluidRow(
-      #   )
-      # ) # Fin ONGLET RECHERCHE
+      tabItem(
+        tabName = "ONGLET_recherche",
+        # R1 - Onglet recherche
+        fluidRow(
+        box(
+          collapsible = TRUE,
+          collapsed = FALSE,
+          solidHeader = TRUE,
+          status = "primary",
+          title="Variables definition",
+          width=12,
+          includeMarkdown("variables_def.md")
+        )
+        )
+      ) # Fin ONGLET RECHERCHE
       
       
       
       
-      
-      
-      
-      
-      
+    
     ) # fin de tabitems global
     
     

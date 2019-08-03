@@ -49,6 +49,27 @@ df$registeredQ <- with(df, cut(registered,
                              breaks=quantile(registered, probs=seq(0,1, by=0.25), na.rm=TRUE), 
                              include.lowest=TRUE))
 
+# Recodage de "season" et "weather"
+# table(df$season)
+# lapply(df,class)
+df$season_recoded <- NA
+df$season_recoded[df$season == 1] <- "Printemps"
+df$season_recoded[df$season == 2] <- "Été"
+df$season_recoded[df$season == 3] <- "Automne"
+df$season_recoded[df$season == 4] <- "Hiver" 
+df$season <- NULL
+names(df)[names(df) == "season_recoded"] <- "season"
+
+df$weather_recoded <- NA
+df$weather_recoded[df$weather == 1] <- "Temps clair, peu nuageux"
+df$weather_recoded[df$weather == 2] <- "Brouilard et nuageux"
+df$weather_recoded[df$weather == 3] <- "Légèrement neigeux, pluie fine avec orage et quelques nuages, pluie fine avec quelques nuages"
+df$weather_recoded[df$weather == 4] <- "Beaucoup de pluie avec grêle, orage et brouillad, neige avec nuages"                
+df$weather <- NULL
+names(df)[names(df) == "weather_recoded"] <- "weather"
+
+# table(df$weather)
+
 # Sauvegarde du dataframe nettoyé
 saveRDS(object = df,file = "df.rds")
 
