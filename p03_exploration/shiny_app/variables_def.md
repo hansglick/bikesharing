@@ -1,16 +1,16 @@
-* **datetime** : hourly date + timestamp
+* **datetime** : date + heure
 * **season** : 1 = printemps, 2 = été, 3 = automne, 4 = hiver
-* **holiday** : whether the day is considered a holiday
-* **workingday** : whether the day is neither a weekend nor holiday
+* **holiday** : jour férié (0/1)
+* **workingday** : jour ouvré (0/1)
 * **weather** :      
-1: Temps clair, peu nuageux   
-2: Brouillard et nuageux     
-3: Légèrement neigeux, pluie fine avec orage et quelques nuages, pluie fine avec quelques nuages       
-4: Beaucoup de pluie avec grêle, orage et brouillad, neige avec nuages     
-* **temp** : temperature in Celsius
-* **atemp** : "feels like" temperature in Celsius
-* **humidity** : relative humidity
-* **windspeed** : wind speed
-* **casual** : number of non-registered user rentals initiated
-* **registered** : number of registered user rentals initiated
-* **count** : number of total rentals
+1: Beau temps   
+2: Brouillard et nuages     
+3: Neigeux ou pluie avec orage       
+4: Pluie +++ et grêle ou orage et brouillard ou neige +++     
+* **temp** : température °C
+* **atemp** : température ressentie °C
+* **humidity** : humidité relative
+* **windspeed** : vitesse du vent
+* **casual** : nombre de locations des utilisateurs sans abonnement
+* **registered** : nombre de locations des utilisateurs avec abonnement
+* **count** : nombre total de locations

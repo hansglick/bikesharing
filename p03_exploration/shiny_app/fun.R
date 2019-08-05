@@ -39,11 +39,16 @@ fun_filter_df = function(df,date_debut,date_fin){
 
 # THE MEGA TIME SERIES
 build_the_time_series = function(){
-  mydf = df[,c("datetime","count")]
+  mydf = df[,c("datetime","count","S_rateregis")]
   mydf = mydf[order(mydf$datetime,decreasing = FALSE),]
   mydf$datetime = mydf$datetime + hours(5)
-  mydata = xts(x = mydf$count, order.by = mydf$datetime)
-  g = dygraph(mydata) %>% dyRangeSelector()
+  mydata = xts(x = mydf, order.by = mydf$datetime)
+  
+  g = dygraph(mydata, main = "Enorme Plot")%>%
+    dyAxis("y", label = "Count", valueRange = c(0, 1000), independentTicks = TRUE)%>%
+    dyAxis("y2", label = "Registered Rate ", valueRange = c(0, 1), independentTicks = TRUE) %>%
+    dySeries("S_rateregis", axis=('y2')) %>%
+    dyRangeSelector()
   return(g)
 }
 

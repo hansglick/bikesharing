@@ -3,8 +3,10 @@ super_maestro = function(filename){
   source("cleaning.R", encoding = "UTF-8")
   source("features.R", encoding = "UTF-8")
   root = "../p03_exploration/shiny_app/"
+  rootcsv = "../p04_model/data/"
   file = strsplit(x = filename,split = ".",fixed = T)[[1]][1]
   pathfile = paste0(root,file,".rds")
+  pathfilecsv = paste0(rootcsv,file,".csv")
   
   # On supprime les fake variables s'il s'agit de test
   if(filename == "test.csv"){
@@ -16,10 +18,9 @@ super_maestro = function(filename){
   }
   
   saveRDS(object = df,file = pathfile)
+  write.csv(x = df,file = pathfilecsv,row.names = F)
   
 }
-
-
 
 
 fun_modify_script_py = function(filename){
