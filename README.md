@@ -9,6 +9,14 @@ Les différentes étapes de notre participation au Kaggle Bike Sharing : https:/
 <img src="img/sb.png" width="500">
 
 
+# Organisation
+
+Le projet est organisé en 4 sous projets :
+ * **Importation des données** (Partie 1) : Ajout des variables temporelles basiques avec la librairie Pandas de Python (heure, jour de la semaine, mois, année)
+ * **Cleaning et Features engineering** (Partie 2) : Création des variables tendances temporelles, élévation du soleil, congés, vacances scolaires avec R
+ * **Exploration** (Partie 3) :  Application Shiny permettant de croiser n'importe quelle feature (et paire de features) avec la variable cible avec R
+ * **Modélisation** (Partie 4) :  Régression Ridge, Random Forest et Extreme Gradient Boosting avec Scikit-Learn et xgboost de Python
+
 # Environnement Conda
 Afin de répliquer l'environnement utilisé, lancez l'action suivante 
 
