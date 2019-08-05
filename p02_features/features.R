@@ -1,5 +1,3 @@
-# A ENLEVER
-source("cleaning.R", encoding = "UTF-8")
 
 # FEATURE HOLYDAY * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
 
@@ -140,6 +138,14 @@ rm(df_temp)
 # test_2012 = df[df$school_vacation_feature == 1 & df$year == 2012,]
 # length(unique(test_2012$only_day))
 # 63 jours de vacances scolaires en 2011
+
+
+
+
+
+
+
+
 
 
 # FEATURE SOLEIL ELEVATION * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
