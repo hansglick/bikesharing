@@ -9,7 +9,7 @@ Les différentes étapes de notre participation au Kaggle Bike Sharing : https:/
 <img src="img/sb.png" width="500">
 
 
-# Organisation
+# Organisation du projet
 
 Le projet est organisé en 4 sous projets :
  * **Importation des données** (Partie 1) : Ajout des variables temporelles basiques avec la librairie Pandas de Python (heure, jour de la semaine, mois, année)
