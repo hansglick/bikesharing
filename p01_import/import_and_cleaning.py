@@ -14,7 +14,7 @@ import pandas as pd
 # In[2]:
 
 
-df = pd.read_csv("../data/train.csv")
+df = pd.read_csv("../data/test.csv")
 df.shape
 df.head()
 

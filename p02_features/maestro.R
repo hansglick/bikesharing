@@ -9,11 +9,11 @@ library(reshape2)
 
 source("fun.R",encoding = "UTF-8")
 
-filename <<- "train.csv"
-super_maestro (filename)
-
-# filename <<- "test.csv"
+# filename <<- "train.csv"
 # super_maestro (filename)
+
+filename <<- "test.csv"
+super_maestro (filename)
 
 
 
