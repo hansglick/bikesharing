@@ -29,6 +29,10 @@ Quelques tricks en vrac concernant le tunning des paramètres :
  1. VINCENT VINCENT VINCENT VINCENT VINCENT VINCENT VINCENT VINCENT VINCENT VINCENT VINCENT VINCENT VINCENT VINCENT 
  2. VINCENT VINCENT VINCENT VINCENT VINCENT VINCENT VINCENT VINCENT VINCENT VINCENT VINCENT VINCENT VINCENT VINCENT 
 
+
+## Stratégie modélisation 
+
+VINCENT VINCENT VINCENT VINCENT VINCENT VINCENT VINCENT VINCENT VINCENT VINCENT VINCENT VINCENT VINCENT VINCENT VINCENT VINCENT 
 ## Ensembliste model
 
 Bon apparemment, tu peux entraîner des modèles qui attaquent une partie spécifique du problème puis les combiner. Voir l'exemple du mec qui modélise le nombre de vélos loués pour les Register et pour les Casual puis qui les somme. Voir également l'exemple du mec qui fait la solution top 5% qui fait un RF et un XGB puis qui met un poids de 80% sur les prédictions de XGB et 20% sur les prédictions de RF. Il s'avère que le modèle est très bon.
