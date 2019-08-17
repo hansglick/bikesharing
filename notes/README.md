@@ -38,6 +38,12 @@ VINCENT VINCENT VINCENT VINCENT VINCENT VINCENT VINCENT VINCENT VINCENT VINCENT 
 Bon apparemment, tu peux entraîner des modèles qui attaquent une partie spécifique du problème puis les combiner. Voir l'exemple du mec qui modélise le nombre de vélos loués pour les Register et pour les Casual puis qui les somme. Voir également l'exemple du mec qui fait la solution top 5% qui fait un RF et un XGB puis qui met un poids de 80% sur les prédictions de XGB et 20% sur les prédictions de RF. Il s'avère que le modèle est très bon.
 
 
+## Probing
+
+On n'a pas eu le temps de tester le probing. Méthode qui consiste à trouver une correction aux prédictions du modèle en envoyant des soumissions successives à Kaggle. L'idée sous jacente est que la population et/ou les distributions des features peuvent être différentes entre le test set de Kaggle et le training set fourni. Par exemple, notre training set représentait les vélos loués à chaque heure des 20 premiers jours des mois de l'année sur deux ans. Cependant, il fallait prédire le nombre de vélos loués lors des 10 derniers jours du mois. Se déplacer plus ou moins entre le début et la fin du mois n'est pas à exclure totalement. Il y a peut être plus d'activités d'organisées en début de mois, les gens sont peut être plus enclins à sortir juste après leur paye qu'à la fin.
+
 ## TO DO LIST (next Kaggle)
 
  1. Un package permettant de binner une variable numérique ou catégorielle en fonction d'une variable cible.
+ 2. Attention aux données manquantes dont on ne sait pas occuper. Voir la méthode interpolate de pandas.
+ 3. Sortir les observations du validation avec les pires prédictions histoire d'avoir des idées de features engineering.
